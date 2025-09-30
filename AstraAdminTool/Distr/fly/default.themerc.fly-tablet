@@ -1,0 +1,716 @@
+[Variables]
+AutostartMonitor=false
+
+UseXInput=false
+
+;call it when xany xrandr event occured
+;XRandrCallback=
+
+;call it when xinput hierarchy changed (hotplug)
+XInputHotplugCallback="fly-xkbmap --autostart"
+
+;if desktop entry file is invalid and not modified by user then delete it
+DeleteBrokenDesktopEntries=false
+
+PingWindowTime=3000
+
+MaxWindowsNum=200
+
+;"default" - "fly-rotate %s", "none" - no autorotation (default), or custom command with %s arg for rotation direction
+AutoRotateCmd="none"
+
+;process configure requests when dnd, resize etc.
+ProcessConfigureAlways=false
+
+;if low performance/resources set it with true, else - false, or auto detection
+; some features will be disabled for low performance/resources machines
+LowPerf=auto
+
+;use memlock() to to avoid fly-wm swapping:
+;possible values can contain flag (i.e 'current', 'future' or both) and-or memory value (in bytes)
+;if PC memory less than mentioned here then fly-wm will be locked with mentioned or default flags
+; examples "current, future, 1048577"  lock fly-wm with MCL_CURRENT|MCL_FUTURE flags if PC memory is less then 1 gigabyte
+;          "current, future"           lock fly-wm with MCL_CURRENT|MCL_FUTURE flags in spite of memory value
+;          "current, 1048577"          lock fly-wm just after start, i.e. with MCL_CURRENT flags if PC memory is less then 1 gigabyte
+;MemLock=
+
+;to use main desktop facilities, else - wm only mode
+UseDesktop = true
+
+TerminalExecCmd="x-terminal-emulator -e "
+;TerminalHoldCmd="x-terminal-emulator --noclose -e "
+TerminalHoldCmd="x-terminal-emulator -e "
+
+HideMACLabelIfZero=true
+
+;import window and taskbar decor from /usr/share/fly/decorations folder
+DecorTheme=
+
+;force to use Qt4 palette settings instead of own colors, 4 or 0 (not to use)
+UseQtPalette=0
+;force to use Qt4 font settings instead of own fonts, 4 or 0 (not to use)
+UseQtFont=0
+
+;use Xft for font matching and drawing, else use X11 core
+;use Xft if UTF-8 encoding only
+;if use Xft then can set font names in both Xft and XLFD forms, else - XLFD only
+UseXft=true
+
+MACLevelColor0 = lightblue
+MACLevelColor1 = yellow
+MACLevelColor2 = orange
+MACLevelColor3 = salmon
+MACLevelColor4 = red
+MACLevelColor5 = brown
+MACLevelColor6 = magenta
+MACLevelColor7 = darkmagenta
+
+OpaqueMove = true
+OpaqueResize = true
+FullOpaque = true
+
+; Normal, TopToBottom, LeftToRight, CenterToTopBottom, CenterToLeftRight, CenterToAll(was default), FromButton 
+GradWindowMapStyle = Normal
+; was 15
+GradWindowMapSpeed = 0
+;find free place
+SmartPlacement = true
+;placement type if SmartPlacement is false or no free place found
+DefaultPlacement = NorthWest
+ModalDialogCentered = true
+OrphanedDialogCentered = true
+ArrangeWindowSpeed = 0
+PreventShiftAtRemapList="synaptic:tamtam:evolution:"
+
+IconTheme = fly-astra-flat
+UseTrayIconTheme = true
+
+StartButtonIcon = astra-simplified
+StartButtonIconContext=Emblems
+NoStartButtonTitle = true
+;expandable message format (%host - host name, %user - user name, %domain - domain name, %gecos - full user name with all GECOS fields, $... - env var)
+;StartButtonMessage="Start here, %gecos!"
+
+DefaultSmallIcon = system-run
+DefaultLargeIcon = system-run
+DefaultSmallIconContext=Actions
+DefaultLargeIconContext=Actions
+DefaultFont="PT Astra Fact-10"
+
+StartMenuFind=true
+
+ExternalImageLoader=true
+
+; wallpaper image
+WallPaper=fly-default
+WallPaperPeriod = 0
+; image position (Center, Tile, Stretch, Crop)
+WallPaperPos = Crop
+DesktopColor = BackgroundColor
+DesktopColor2 = BackgroundColor
+; number desktop gradient colors
+DesktopColors = 80
+DesktopGradHoriz = false
+CursorColor = PrimaryTextColor
+LogoPixmap=/usr/share/wallpapers/logo/astra_logo
+LogoPosition=BottomRight
+
+;dpi dependent
+;FrameTitleHeight = 22
+TitlebarImage = ""
+TitlebarActiveImage = ""
+; titlebar gradient
+GradTitlebar = true
+; titlebar gradient colors
+GradTitlebarColors = 40
+TitlebarColor = BackgroundColor
+TitlebarColor2 = BackgroundColor
+TitlebarActiveColor = PrimaryColor
+TitlebarActiveColor2 = PrimaryColor
+TitleStringColor = BackgroundTextColor
+TitleStringActiveColor = PrimaryTextColor
+TitleFont="PT Astra Fact-9"
+; the speed (small is fast) - obsolete see ArrageWindowSpeed
+;TitlebarMotionSpeed = 0
+
+; window frame
+;dpi dependent
+;FrameBorderWidth = 1
+FrameImage = ""
+FrameActiveImage = ""
+FrameColor = BackgroundColor
+FrameActiveColor = PrimaryColor
+FrameOutlineColor = PrimaryLightColor
+FrameActiveOutlineColor = PrimaryLightColor
+
+PagerImage = ""
+PagerColor=PrimaryDarkColor
+PagerColor2=PrimaryDarkColor
+PagerActiveColor=PrimaryLightColor
+MiniatureColor = PrimaryTextColor
+MiniatureActiveColor = red
+;use internal default geometry and left-bottom screen corner 
+PagerGeometry = 0x0-0-0
+; edge resistance for switching page
+PagingResistance=1500
+; movement (%) on switching page
+PagingMovement	=100
+; switchable area of edge (dot)
+PagingBeltSize	=0
+; switch page gradually
+PagingSpeed	=30
+; shift cursor when paging
+PagingShiftCursor=200
+;goto to page of raised window (usefult for raised signle app)
+PagingToRaisedWin=true
+; Normal, TopToBottom, LeftToRight, CenterToTopBottom, CenterToLeftRight, CenterToAll, FromButton
+PagerMapStyle = CenterToAll
+PagerMapSpeed = 0
+;mouse movement rectangle to switch desktops
+PagingGestureMinWidth  = 100
+PagingGestureMaxHeight = 300
+; min page size since miniatures are clickable in embedded pager, 0 - always clickable, some big val - not clickable
+PagerMiniaturesClickableSize = 1000
+
+; own dir for each virtual desktop
+PagerMultiDesktop=true
+
+;try to get all 3 items from decor theme description file
+;dpi dependent
+;TaskbarHeight = 48
+;dpi dependent
+;TaskbarButtonMargin = 4
+;TaskbarButtonHeight = 44
+;TaskbarButtonWidth = 160
+TaskbarImage = ""
+TaskbarColor = PrimaryDarkColor
+TaskbarStringColor = PrimaryDarkTextColor
+TaskbarStringActiveColor = PrimaryLightTextColor
+ClockStringColor = PrimaryDarkTextColor
+TaskbarFont="PT Astra Fact-9"
+TaskbarClockFont="PT Astra Fact-12:bold"
+TaskbarDateFont="PT Astra Fact-9"
+TaskbarLangFont="PT Astra Fact-10"
+; use bold or double drawing with 1-pixel shift
+UseBoldFont = true
+TaskbarBoldFont="PT Astra Fact-9:bold"
+; the speed [0 - no animation, was 10]
+GradTaskbarMotionSpeed = 0
+; autoshow delay(ms)
+TaskbarShowDelay = 500
+; autohide delay(ms)
+TaskbarHideDelay = 500
+TaskbarFontsAutoResize=true
+TaskbarButtonCombine=true
+NoTaskbarButtonName=true
+
+; desktop icon size - space between icons, icons and names
+;dpi dependent
+;DesktopIconSize = 48
+;dpi dependent
+;IconHorizontalSpacing = 48
+;dpi dependent
+;IconVerticalSpacing = 48
+; menu icon size
+;dpi dependent
+;MenuIconSize = 16
+; remaining icon size (start menu, task switcher)
+;IconSize = 32
+; small icon size (toolbar, submenus, tray, window title)
+;IconSizeSmall = 16
+IconActiveColor = PrimaryLightColor
+IconStringColor = PrimaryTextColor
+IconStringActiveColor = PrimaryLightTextColor
+; ButtonStringColor could be used instead of this
+IconForeColor = BackgroundTextColor
+; ButtonColor could be used instead of this
+IconBackColor = BackgroundColor
+IconFont="PT Astra Fact-9"
+; hightlight icon koefficient when mouse is over
+IconOverEffect = 0.3
+;get icon string color from it's wallpaper area luminocity
+AdaptiveIconStringColor=true
+
+;dpi dependent
+;TrayIconSize = 32
+
+;one or double (dafault) click run for desktop icon and tray indicator
+OneClickRun = true
+
+IndicatorClickTimeout=2000
+
+TrayLazyAppList="zoom:"
+TrayBlackList="thunderbird:firefox:chrom:rocket:"
+TrayPriorityList="fly-notifications:qbat:Nm-applet:NetworkManager:blueman-applet:fly-brightness:KMix:fly-sound-applet:fly-orientation:fly-vkbd:fly-reflex-service:fly-print-monitor:fly-shutdown-dialog:ibus-ui-gtk3:Kaspersky:zoom:"
+TraySortList="fly-notifications:qbat:Nm-applet:NetworkManager:blueman-applet:fly-brightness:KMix:fly-sound-applet:fly-orientation:fly-vkbd:fly-reflex-service:"
+UseSystemTray=true
+
+;popup menus at left, useful in tablet mode i.e. if OneClickRun is true
+PopupMenuToLeft = true
+
+;dpi dependent
+;StartMenuVerticalMargin = 3
+;MenuVerticalMargin = 3
+MenuImage = ""
+MenuActiveImage = ""
+StartMenuMiniIcon=true
+
+; if different MenuColor2 then gradient fill, classic #a4a3be->#fbfcfd, for fly7 theme #9dc9d1->#51a1af
+MenuColor = PrimaryDarkColor
+MenuColor2 = PrimaryDarkColor
+MenuActiveColor = PrimaryLightColor
+MenuStringColor = PrimaryDarkTextColor
+MenuStringActiveColor = PrimaryLightTextColor
+CtrlMenuFont="PT Astra Fact-9"
+
+StartMenuMapSpeed = 0
+;StartMenuLogoImage = /usr/share/fly-wm/images/astra_menuside_22.xpm
+;StartMenuLogoColor = PrimaryDarkColor
+StartMenuFont="PT Astra Fact-10"
+CascadeMenuFont="PT Astra Fact-10"
+
+; pointing-displaying delay
+MenuDelayTime = 300
+; losing focus - vanishing delay
+MenuDelayTime2 = 300
+; timeout to enbale quick move mouse from menu item to its submenu across other items
+QuickMoveMenuTime=200
+; the speed (small is fast)
+GradMenuMapSpeed = 0
+MenuTransparency = 0
+; the same level of transparency - no transparency (was 0 -> 30)
+MenuTransparency2= 0
+
+DialogImage = ""
+DialogColor = BackgroundColor
+DialogStringColor = BackgroundTextColor
+DialogFont="PT Astra Fact-10"
+; Normal, TopToBottom, LeftToRight, CenterToTopBottom, CenterToLeftRight, CenterToAll, FromButton
+DialogMapStyle = CenterToAll
+DialogMapSpeed = 0
+;dpi dependent
+;ChoiceDialogItemMargin = 0
+
+
+; switcher background image path,
+; "Wallpaper"   - part of current wallpaper will be used
+; "Transparent" - pseudo transparency, i.e. "Transparent" - default 60%, "Transparent80" - 80%, etc.
+SwitcherImage = "Transparent20"
+SwitcherColor = BackgroundColor
+SwitcherActiveColor = PrimaryColor
+SwitcherStringColor =BackgroundTextColor
+SwitcherStringActiveColor = PrimaryLightTextColor
+; Normal, TopToBottom, LeftToRight, CenterToTopBottom, CenterToLeftRight, CenterToAll, FromButton
+SwitcherMapStyle = CenterToAll
+SwitcherMapSpeed = 0
+SwitcherVertical = false
+SwitcherAllPages = true
+
+ButtonColor = PrimaryColor
+ButtonActiveColor = PrimaryLightColor
+ButtonStringColor = PrimaryTextColor
+ButtonStringActiveColor = PrimaryLightTextColor
+
+TooltipEnabled=false
+TooltipEnabledInStartMenu=false
+TooltipColor = qt
+TooltipStringColor = qt
+TooltipFont="PT Astra Fact-10"
+
+;sound player
+;"play -q  %s" - use player of sox package
+;"auto" - find and set player of candidates "play", "paplay", "sndfile-play" (safe way, default in SE)
+;"internal" - dont use external player, decode and play directly (quick way, default in CE)
+SoundPlayer=auto
+EnableSound = false
+EnableAlsa = true
+SoundTheme = ""
+SystemStartSound= "x-fly-wm-chimes.wav"
+SystemExitSound = "x-fly-wm-chimes.wav"
+SystemLockSound = "x-fly-wm-chimes.wav"
+MaximizeSound = ""
+MinimizeSound = ""
+RestoreUpSound = ""
+RestoreDownSound = ""
+OpenSound = ""
+CloseSound = ""
+MenuPopupSound = ""
+MenuCommandSound = ""
+PagingSound = ""
+OSDNotifySound = "x-fly-wm-tooltip.wav"
+ErrorDialogSound = "x-fly-wm-error.wav"
+ForceTrayMessageSound = "x-fly-wm-tooltip.wav"
+
+; kb layout at start: base, alt, prev (from previous session), none (dont set anything)
+KbAtStart=none
+;save/restore kb layout with window focus
+OwnKbPerWindow=false
+BaseKbForNewWindow=false
+
+UseClock=true
+; %H:%M -  20:10, %T (th same as %H:%M:%S) - 16:50:59
+ClockFormat="%H:%M"
+DateFormat="%a, %e %b"
+; Monday, June 22, 1998 - "%A, %B %e, %Y"
+ClockMessageFormat="%a, %e %b %Y"
+
+;composite stuff
+UseComposite=false
+CompositeManager="/usr/bin/compton"
+;ComptonArgs="--unredir-if-possible --use-ewmh-active-win --use-damage --glx-no-rebind-pixmap --glx-no-stencil"
+ComptonArgs=""
+CompositeManagerVSync=false
+
+UseXSettings=true
+UseClipboardManager=true
+UseClipboardManagerMAC=false
+;colon separated types not to save in clipboard manager
+ClipboardManagerTypesBlacklist="Star Embed Source:x-openoffice-link:"
+
+DialogShadow = 100
+DialogOpacity= 100
+DialogFadeShow= true
+DialogFadeHide= true
+
+InfoDisplayShadow= 50
+InfoDisplayOpacity= 85
+InfoDisplayFadeShow= false
+InfoDisplayFadeHide= false
+
+PagerShadow= 100
+PagerOpacity= 85
+PagerFadeShow= true
+PagerFadeHide= true
+
+TaskbarShadow= 0
+TaskbarOpacity= 100
+TaskbarFadeShow= false
+TaskbarFadeHide= false
+
+TooltipShadow=50
+TooltipOpacity= 100
+TooltipFadeShow= true
+TooltipFadeHide= false
+
+MenuShadow= 50
+MenuOpacity= 100
+MenuFadeShow= false
+MenuFadeHide= false
+StartMenuFadeShow= false
+StartMenuFadeHide= true
+
+IconDragOpacity= 75
+
+;dimmed screen at exit
+StoppedDim=50
+StoppedOpacity=62
+;normal fade step is 0.01-0.03, this is to have slow fade effect
+StoppedFadeShowStep=0.005
+
+MoveOpacity=85
+ResizeOpacity=85
+
+DecorOpacity=100
+
+;shadow of window with focus
+; 0 - +100 - own shadow for focused window
+;-2 - -100 - own shadow for focused window ONLY, no shadow for all others
+;-1        - undefined, shadow for focused windows is the same as for all others
+FocusShadow=-100
+
+;0 - any thumbnais of windows are disabled, 1-20 - size in parts of screen, >20 - size in pixels, -1 - dpi dependent (default)
+ThumbSize=-1
+
+;on screen effect: 0 - none, 1 - simple tile, 2 - grayscale, 3 -blurred
+OnScreenEffectExit=3
+OnScreenEffectSwitcher=3
+
+XOSDisplayDesktopCmd="fly-notify-osd-cat --virtualDesktopChanged"
+XOSDisplaySleepCmd="fly-notify-osd-cat --showText sleep"
+
+;try to fit window position to be fully visible in screen
+FitWindowsToScreen=true
+;use center window point instead of top-left corner
+CenterWindowPos=true
+
+SwitcherWidth = 800
+SwitcherItemWidth = 195
+
+;true - enable to move window by any point inside it (as soon as multitouch - 2-finger resize too)
+AllMouseOps = false
+
+UseStartButton  = true
+
+MaxRestartOnFailureCount=3
+AllowRemoteCmd	=true
+UseDebugger	=false
+
+
+HourGlassTime	=30000
+
+;use inotify if available, else - set CheckDirDelay with non-zero
+UseInotify = true
+CheckDirDelay = 0
+
+FocusStealingPrevention=false
+ClickToFocus	=true
+FocusOnMap	=false
+ClickingRaises	=true
+NoDesktopFocus	=true
+NoFocusChangeMask=Shift
+AutoRaise	=true
+AutoRaiseDelay	=300
+UseInfoDisplay	=false
+;use Alt+Btn1/3 for move/resize ops
+AltMouseOps	=true
+;place new application window on screen with cursor
+PlaceOnCursorScreen=true
+;get screen to execute per screen functions by current active window, not by cursor
+ScreenByActiveWindow=false
+
+; resistance at edges
+EdgeResistance	=50
+; snap aligned to windows
+SnappingMove	=5
+; snap also to borders
+SnappingEdges	=5
+; ignore snapping move by this key
+NoSnappingMask	=Alt
+; ratio for moving by shift+cursor
+ShiftMoveRatio	=1.0
+; ratio for moving by ctrl+cursor
+CtrlMoveRatio	=0.5
+; keep dragging until clicking again
+LockDragState	=false
+;windows like snapping
+SnappingResize=true
+SnappingMoving=true
+
+;set them to use part of root window
+;FlyDesktopX=0
+;FlyDesktopY=0
+;FlyDesktopWidth=0
+;FlyDesktopHeight=0
+
+DoubleClickTime	=400
+;dpi dependent
+;DoubleClickDistance=15
+
+TooltipDelayTime  =500
+TooltipMotionSpeed=1
+TooltipDisplayTime=3000
+
+UsePager=false
+OnTopPager=true
+; embeded pager in taskbar
+EmbeddedPager=true
+;place it on the left size of taskbar (false - on the right near to tray)
+EmbeddedPagerAtLeft=true
+; top-left page of virtual screen
+;TopLeftPage=-1-1
+;PagingSize=3x3
+TopLeftPage=-0-0
+PagingSize=2x2
+
+UseTaskbar=true
+FixedTaskbar=true
+TaskbarPosition=Bottom
+TaskbarRows=1
+TaskbarAutoHide=false
+; minimize by pushing active tbutton
+RestoreMinimize=true
+OnTopTaskbar=true
+; show only buttons for wins in screen
+TaskbarButtonInScr=true
+; no resize over taskbar
+NoResizeOverTaskbar=true
+
+FixedDesktopIcons=false
+FixedTaskbarButtons=false
+FixedMenuButtons=false
+FixedMinis=false
+
+;set image with keyword "flag" to get international flags from icon theme (flag-xx.png)
+;BaseKbImage="flag"
+;AltKbImage="flag"
+;KbImagesCtx="International"
+;BaseKbImage="keyboard-layout-en"
+;AltKbImage="keyboard-layout-ru"
+;KbImageCtx="Status"
+XmodmapMap="jcuken-cyr.xmm"
+baseKBLayout=true
+numLockOn=false
+numLockIndicator=false
+capsLockIndicator=false
+;format: "2" - 2 letters layout indicator, "3" - 3 letters, "auto" - 2 or 3 letters if there are the same layouts names with probably different variants
+langIndicatorFormat="auto"
+
+ProgsOnlyInRecentsMenu=true
+
+;obsolete
+;DesktopDropDelay=1500000
+
+;dpi dependent
+;DndDragThreshold = 15
+DndActionLinkAsSymlink=false
+
+;use dnd asction slection menu when drop on desktop or in external target
+UseDnDActionMenu=true
+
+;how to call start panel (true - try via dbus, if failed then fork/exec, false - never use dbus)
+StartPanelDBUS = false
+
+;to fix keyboard in nested session add args
+;v1.1: -keybd ephyr,,kbdmodel=evdev
+;v1.2: -keybd ephyr,,,kbdmodel=evdev
+;v1.3: -keybd ephyr,,,xkbmodel=evdev,xkblayout=us,ru,xkbrules=evdev
+;XephyrArgs="-dpi 96 -keybd ephyr,,,xkbmodel=evdev,xkblayout=us,ru,xkbrules=evdev"
+XephyrArgs="-resizeable"
+
+; these commands can redefine internal fly-wm dbus stuff
+; poweroff/shutdown command
+;ShutdownCmd="fly-su -- shutdown -h now"
+; reboot/restart command
+;RebootCmd="fly-su reboot"
+; standby command , undefined for upower, but defined for logind and  pm-suspend-hybrid is defined in pm-utils
+;StandbyCmd="if pm-is-supported --suspend; then fly-su pm-suspend; fi"
+; suspend command
+;SuspendCmd="if pm-is-supported --suspend-hybrid; then fly-su pm-suspend-hybrid; fi"
+; hibernate command
+;HibernateCmd="if pm-is-supported --hibernate; fly-su pm-hibernate; fi"
+
+; better to use special script i.e. /usr/bin/fly-dpms-switch on/off
+; if dpms failed, try "xbacklight -set 0"
+; if xset dpms force off then use sleep to avoid x-server/monitor switch on by key release event 
+DpmsOffCmd="sleep 1;xset dpms force off"
+; if dpms failed, try "xbacklight -set 66"
+DpmsOnCmd="xset dpms force on"
+
+DefaultConfirmDialogTimeout=30
+
+;SVGConvertorFormat="fly-svg2png -w %d -h %d -i \"%s\" -o \"%s\""
+;SVGConvertorFormat="rsvg-convert -w %d -h %d \"%s\" > \"%s\""
+SVGConvertorFormat = "fly-svg2png.sh %d %d \"%s\" \"%s\""
+
+KillAtExitCmd="pkill -P %d"
+
+TransientNotMinimizable=true
+
+;delay between the same commands continouosly called by repeated hotkey
+HotkeyCommandRepeatDelay=1
+
+; use at least one comma to cheat QSettings (to be replaces with own FlySettings)
+;ScreenSaver="xlock -mode blank +nolock -mousemotion -remote -echokeys -echokey '*' +description -font \"-*-helvetica-medium-r-*--18-*-*-*-*-*-*-*\" -fontset \"-*-helvetica-medium-r-*--18-*-*-*-*-*-*-*\" -username \"Имя: \" -password \"Пароль :\" -info \"Введите пароль для входа\" -validate \"Проверка...\" "
+;ScreenSaver="xlock -mode biof -preset 5 -lines 20 -points 60 -offangle +nolock -mousemotion -remote -echokeys -echokey '*' +description -invalid \"Неправильный пароль, повторите\""
+;ScreenSaver="internal Xephyr -once -resizeable -query 127.0.0.1 -displayID %maclabel -parent %parentwin :%display"
+ScreenSaver=internal
+ScreenSaverDelay=600
+ScreenSaverDBUS=true
+ScreenSaverInhibitorImposesPowerManagementInhibitor=true
+ScreenSaverStartOnDPMSDelay=3
+
+;locker stuff
+LockerOnSleep=true
+LockerOnDPMS=true
+LockerOnLid=true
+LockerOnSwitch=true
+
+LockerDpmsOffTimeout=20
+LockerWrongPasswdTimeout=2
+LockerTTYLock=false
+LockerXaccessLock=false
+; better to use special script
+LockerDPMSInCallback="/usr/bin/fly-dpms-callback.sh off"
+LockerDPMSOutCallback="/usr/bin/fly-dpms-callback.sh on"
+;DPMS standby by any of these keys, what about XF86Suspend?
+;LockerDPMSKeys="XF86PowerOff:XF86PowerDown:XF86Sleep"
+;callbacks after locker started and finished
+;LockerInCallback=""
+;LockerOutCallback=""
+
+LockerInputFont="PT Astra Fact-15"
+LockerWelcomeFont="PT Astra Fact-14"
+LockerEnterFont="PT Astra Fact-13"
+LockerUsernameFont="PT Astra Fact-13"
+LockerMsgFont="PT Astra Fact-15"
+
+LockerInputColor=#98a0a7
+;LockerInputShadowColor=
+;LockerWelcomeColor=
+;LockerWelcomeShadowColor=
+LockerUsernameColor=white
+LockerUsernameShadowColor=black
+LockerMsgColor=white
+LockerMsgShadowColor=black
+
+LockerLangX="75%"
+LockerLangY="90%"
+LockerCapsX="75%"
+LockerCapsY="95%"
+
+LockerSessX="5%"
+LockerSessY="50%"
+
+LockerInputNameX=80
+LockerInputNameY=270
+LockerInputPassX=80
+LockerInputPassY=270
+LockerPassChar=*
+;LockerInputShadowOffsetX=
+;LockerInputShadowOffsetY=
+;allowed backgrounds: "fly-default", "wallpaper", "wallpaper-blur", "wallpaper-grey", "wallpaper-blur-grey", full path to image file, #RRGGBB color,
+;"auto" -  if user name/list show enabled and WallPaper in /usr/... (non user specific) then the same as "wallpaper-blur", else - fly-default.
+LockerBackgroundImage=auto
+;blurs the custom locker image. A radius value of 0 has no effect, 1 and above determine the blur matrix radius that determine how much to blur the image
+LockerBackgroundImageBlur=4
+LockerPanelImage="/usr/share/fly-wm/images/locker_panel_flat.png"
+LockerInputPanelX="50%"
+LockerInputPanelY="40%"
+;welcome message format (%host - host name, %user - user name, %domain - domain name, $... - env var)  appended to "Welcome to "
+LockerShowWelcome="%host"
+;username message format (%user - user name, %gecos -full user name with all GECOS fields, $... - env var)  appended to "User: "
+LockerShowUsername="%user"
+LockerWelcomeShadowOffsetX=1
+LockerWelcomeShadowOffsetY=1
+;LockerUsernameShadowOffsetX
+;LockerUsernameShadowOffsetY
+LockerPasswordX="50%"
+LockerPasswordY="68%"
+LockerUsernameX="50%"
+LockerUsernameY="79%"
+LockerWelcomeX="50%"
+LockerWelcomeY="-10"
+;LockerPasswdFeedbackX=
+;LockerPasswdFeedbackY=
+LockerMsgX=20
+LockerMsgY=40
+LockerMsgShadowOffsetX=1
+LockerMsgShadowOffsetY=1
+LockerBellLevel=50
+LockerBellSound=x-fly-wm-error.wav
+LockerVkbdGeom=80x80+0-0
+LockerGoGeom=80x80-0-0
+LockerPasswdMaxLength=512
+LockerKbdStart="/usr/bin/fly-vkbd --strut-bottom -s black_flat"
+LockerKbdStop ="/usr/bin/fly-vkbd --minimizetotray -s restore"
+LockerGrabPointer=true
+LockerTimeFont="PT Astra Fact-36"
+LockerMonthDayFont="PT Astra Fact-36"
+LockerWeekDayFont="PT Astra Fact-11"
+LockerDateColor=white
+LockerTimeHrsGeom=100x87+72+32
+LockerTimeMinsGeom=100x87+172+32
+LockerMonthDayGeom=83x87+323+32
+LockerWeekDayGeom=83x10+323+102
+;format according to strftime manual
+LockerWeekDayFormat="%b. %a."
+;colon separated list of window to be placed on top locker
+;LockerOnTopList=polkit-kde-authentication-agent-1
+;date and time parent: if Parent is panel then place date and time in panel coordinates, else - in screen coordinates
+LockerDateTimeParent=panel
+;face parent: if Parent is panel then place date and time in panel coordinates, else - in screen coordinates
+LockerFaceParent=screen
+;if x or y is >= 32767 then dont show face, size 0x0 means original image size
+LockerFaceGeom=0x0+32767-32767
+;generic/raw mode as in fly-dm, can be true, false or auto, i.e. check PluginsLogin in flydmrc for 'generic' keyword
+LockerGenericMode=auto
