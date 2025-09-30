@@ -1,6 +1,0 @@
-[Variables]
-LockerOnSleep=false
-LockerOnDPMS=false
-LockerOnLid=false
-LockerOnSwitch=false
-ScreenSaverDelay=0
